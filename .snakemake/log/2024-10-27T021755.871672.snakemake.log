@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule Sample_sheet in file /root/Project/Tcga_analysis/Saftey_folder/Main_file.smk, line 23:
+Missing input files for rule Sample_sheet:
+    output: outp_file/sample_type.tsv
+    wildcards: she=type
+    affected files:
+        gdc_sample_type.tsv

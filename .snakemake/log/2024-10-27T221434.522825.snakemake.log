@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+Final_plotting        1
+all                   1
+total                 2
+
+Select jobs to execute...
+
+[Sun Oct 27 22:14:36 2024]
+rule Final_plotting:
+    input: outp_file/mearged_plotting.tsv
+    output: outp_file/box_plot.png
+    jobid: 4
+    reason: Missing output files: outp_file/box_plot.png
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 22:14:37 2024]
+Error in rule Final_plotting:
+    jobid: 4
+    input: outp_file/mearged_plotting.tsv
+    output: outp_file/box_plot.png
+
+RuleException:
+CalledProcessError in file /root/Project/Tcga_analysis/Saftey_folder/Main_file.smk, line 60:
+Command 'set -euo pipefail;  Rscript --vanilla /root/Project/Tcga_analysis/Saftey_folder/.snakemake/scripts/tmpj1hjlibe.ploting_data.R' returned non-zero exit status 1.
+  File "/root/Project/Tcga_analysis/Saftey_folder/Main_file.smk", line 60, in __rule_Final_plotting
+  File "/root/miniconda3/envs/snakemake_env/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-27T221434.522825.snakemake.log

@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+Final_plotting        1
+Sample_sheet          1
+all                   1
+total                 3
+
+Select jobs to execute...
+
+[Mon Oct 28 13:44:47 2024]
+rule Sample_sheet:
+    input: outp_file/final_data_file.tsv
+    output: outp_file/sample_sheet.tsv
+    jobid: 2
+    reason: Missing output files: outp_file/sample_sheet.tsv; Updated input files: outp_file/final_data_file.tsv
+    resources: tmpdir=/tmp
+
+[Mon Oct 28 13:44:48 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Mon Oct 28 13:44:48 2024]
+rule Final_plotting:
+    input: outp_file/sample_sheet.tsv
+    output: outp_file/box_plot.png
+    jobid: 3
+    reason: Input files updated by another job: outp_file/sample_sheet.tsv
+    resources: tmpdir=/tmp
+
+[Mon Oct 28 13:44:49 2024]
+Error in rule Final_plotting:
+    jobid: 3
+    input: outp_file/sample_sheet.tsv
+    output: outp_file/box_plot.png
+    shell:
+        
+        Rscript --vanilla ploting_data.R outp_file/sample_sheet.tsv outp_file/box_plot.png
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-28T134446.395839.snakemake.log

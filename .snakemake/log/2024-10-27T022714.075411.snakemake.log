@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+Sample_sheet        1
+all                 1
+total               2
+
+Select jobs to execute...
+
+[Sun Oct 27 02:27:15 2024]
+rule Sample_sheet:
+    input: outp_file/final_data_file.tsv, gdc_sample_sheet.tsv
+    output: outp_file/sample_sheet.tsv
+    jobid: 2
+    reason: Missing output files: outp_file/sample_sheet.tsv
+    wildcards: she=sheet
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-27T022714.075411.snakemake.log

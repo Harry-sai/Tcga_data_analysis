@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+Combining           1
+Sample_sheet        1
+all                 1
+total               3
+
+Select jobs to execute...
+
+[Sun Oct 27 17:53:18 2024]
+rule Sample_sheet:
+    input: outp_file/final_data_file.tsv, gdc_sample_sheet.tsv
+    output: outp_file/sample_sheet.tsv
+    jobid: 2
+    reason: Missing output files: outp_file/sample_sheet.tsv
+    wildcards: she=sheet
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 17:59:37 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Sun Oct 27 17:59:37 2024]
+rule Combining:
+    input: outp_file/final_data_file.tsv, outp_file/sample_sheet.tsv
+    output: outp_file/mearged_plotting.tsv
+    jobid: 3
+    reason: Missing output files: outp_file/mearged_plotting.tsv; Input files updated by another job: outp_file/sample_sheet.tsv
+    wildcards: plo=plotting
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 17:59:37 2024]
+Finished job 3.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Sun Oct 27 17:59:37 2024]
+localrule all:
+    input: outp_file/final_data_file.tsv, outp_file/sample_sheet.tsv, outp_file/mearged_plotting.tsv
+    jobid: 0
+    reason: Input files updated by another job: outp_file/sample_sheet.tsv, outp_file/mearged_plotting.tsv
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 17:59:37 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-10-27T175317.068227.snakemake.log

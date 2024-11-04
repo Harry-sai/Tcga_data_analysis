@@ -1,0 +1,3 @@
+AttributeError in file /root/Project/Tcga_analysis/Saftey_folder/Other_main.smk, line 8:
+'Wildcards' object has no attribute 'dir'
+  File "/root/Project/Tcga_analysis/Saftey_folder/Other_main.smk", line 8, in <module>

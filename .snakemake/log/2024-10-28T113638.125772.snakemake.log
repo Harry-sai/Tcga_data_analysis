@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+Combining             1
+Final_plotting        1
+Sample_sheet          1
+all                   1
+total                 4
+
+Select jobs to execute...
+
+[Mon Oct 28 11:36:38 2024]
+rule Sample_sheet:
+    input: outp_file/final_data_file.tsv, gdc_sample_sheet.tsv
+    output: outp_file/sample_sheet.tsv
+    jobid: 2
+    reason: Forced execution
+    wildcards: she=sheet
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-28T113638.125772.snakemake.log

@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+Combining        1
+all              1
+total            2
+
+Select jobs to execute...
+
+[Sun Oct 27 14:45:13 2024]
+rule Combining:
+    input: outp_file/final_data_file.tsv, outp_file/sample_sheet.tsv
+    output: outp_file/mearged_plotting.tsv
+    jobid: 3
+    reason: Missing output files: outp_file/mearged_plotting.tsv
+    wildcards: plo=plotting
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 14:45:13 2024]
+Finished job 3.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Sun Oct 27 14:45:13 2024]
+localrule all:
+    input: outp_file/final_data_file.tsv, outp_file/sample_sheet.tsv, outp_file/mearged_plotting.tsv
+    jobid: 0
+    reason: Input files updated by another job: outp_file/mearged_plotting.tsv
+    resources: tmpdir=/tmp
+
+[Sun Oct 27 14:45:13 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-10-27T144511.882851.snakemake.log
